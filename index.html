@@ -192,6 +192,9 @@ h2 {
 }
 .edu-card:hover { border-color: #bfdbfe; transform: translateX(5px); }
 .edu-card:hover::before { transform: scaleY(1); }
+.edu-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: .7rem; }
+.edu-card-top > div { flex: 1; }
+.edu-logo { height: 40px; width: auto; object-fit: contain; opacity: .85; flex-shrink: 0; margin-top: .2rem; }
 .edu-year { font-size: .71rem; color: var(--accent); letter-spacing: .07em; margin-bottom: .6rem; }
 .edu-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: .25rem; }
 .edu-org { font-size: .8rem; color: var(--text-muted); margin-bottom: .7rem; }
@@ -386,23 +389,38 @@ footer {
     <div class="reveal d1"><h2>Education</h2></div>
     <div class="edu-list">
       <div class="edu-card reveal d1">
-        <div class="edu-year">2024 — 2026</div>
-        <div class="edu-title">Master's in Telecommunications and Computer Engineering</div>
-        <div class="edu-org">Instituto Superior Técnico — University of Lisbon</div>
+        <div class="edu-card-top">
+          <div>
+            <div class="edu-year">2024 — 2026</div>
+            <div class="edu-title">Master's in Telecommunications and Computer Engineering</div>
+            <div class="edu-org">Instituto Superior Técnico — University of Lisbon</div>
+          </div>
+          <img src="images/IST.png" alt="IST" class="edu-logo"/>
+        </div>
         <div class="edu-desc">Focus on Internet Security, IoT and Telecommunications. Thesis: <em>"Using AI for Integrating Custom-Made Applications"</em>. Vehicular Networks project awarded best in the faculty.</div>
         <span class="edu-badge">Expected GPA: 16/20</span>
       </div>
       <div class="edu-card reveal d2">
-        <div class="edu-year">2021 — 2024</div>
-        <div class="edu-title">Bachelor's in Telecommunications and Computer Engineering</div>
-        <div class="edu-org">Instituto Superior Técnico — University of Lisbon</div>
+        <div class="edu-card-top">
+          <div>
+            <div class="edu-year">2021 — 2024</div>
+            <div class="edu-title">Bachelor's in Telecommunications and Computer Engineering</div>
+            <div class="edu-org">Instituto Superior Técnico — University of Lisbon</div>
+          </div>
+          <img src="images/IST.png" alt="IST" class="edu-logo"/>
+        </div>
         <div class="edu-desc">Foundation in networks, programming and communication systems — covering network protocols, embedded systems and wireless communications.</div>
         <span class="edu-badge">Final GPA: 13/20</span>
       </div>
       <div class="edu-card reveal d3">
-        <div class="edu-year">2019</div>
-        <div class="edu-title">English Course — First Certificate Level B1</div>
-        <div class="edu-org">Cambridge School</div>
+        <div class="edu-card-top">
+          <div>
+            <div class="edu-year">2019</div>
+            <div class="edu-title">English Course — First Certificate Level B1</div>
+            <div class="edu-org">Cambridge School</div>
+          </div>
+          <img src="images/CambridgeSchool.png" alt="Cambridge School" class="edu-logo"/>
+        </div>
         <div class="edu-desc">Certified according to the CEFR (Common European Framework of Reference).</div>
       </div>
     </div>
