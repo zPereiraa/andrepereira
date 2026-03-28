@@ -350,7 +350,7 @@ footer {
       <a href="https://linkedin.com/in/andrepereiraa03/" target="_blank" class="soc" title="LinkedIn">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
       </a>
-      <a href="/cdn-cgi/l/email-protection#c8a9a6acbaade6a9afbda1a9bae6b8adbaada1baa988bcadaba6a1aba7e6bda4a1bbaaa7a9e6b8bc" class="soc" title="Email">
+      <a href="mailto:andre.aguiar.pereira@tecnico.ulisboa.pt" class="soc" title="Email">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
       </a>
     </div>
@@ -509,7 +509,7 @@ footer {
         <h2 class="contact-heading">Ready for a new challenge</h2>
         <p class="contact-sub">Open to professional opportunities, collaborations or just a conversation about technology — don't hesitate to reach out.</p>
         <div style="display:flex;gap:.8rem;flex-wrap:wrap;">
-          <a href="/cdn-cgi/l/email-protection#24454a4056410a4543514d45560a544156414d5645645041474a4d474b0a51484d57464b450a5450" class="btn-blue">
+          <a href="mailto:andre.aguiar.pereira@tecnico.ulisboa.pt" class="btn-blue">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Send Email
           </a>
@@ -517,9 +517,9 @@ footer {
         </div>
       </div>
       <div class="c-links reveal d2">
-        <a href="/cdn-cgi/l/email-protection#20414e4452450e4147554941520e50455245495241605445434e49434f0e554c4953424f410e5054" class="c-link">
+        <a href="mailto:andre.aguiar.pereira@tecnico.ulisboa.pt" class="c-link">
           <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></div>
-          <div class="c-info"><span class="c-label">Email</span><span class="c-val"><span class="__cf_email__" data-cfemail="c6a7a8a2b4a3e8a7a1b3afa7b4e8b6a3b4a3afb4a786b2a3a5a8afa5a9e8b3aaafb5a4a9a7e8b6b2">[email&#160;protected]</span></span></div>
+          <div class="c-info"><span class="c-label">Email</span><span class="c-val">andre.aguiar.pereira@tecnico.ulisboa.pt</span></div>
         </a>
         <a href="https://linkedin.com/in/andrepereiraa03/" target="_blank" class="c-link">
           <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></div>
@@ -543,7 +543,7 @@ footer {
   <span id="last-updated"></span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Last updated
 document.getElementById('last-updated').textContent =
   'Updated: ' + new Date(document.lastModified).toLocaleDateString('en-GB', {day:'2-digit',month:'long',year:'numeric'});
@@ -600,4 +600,15 @@ document.documentElement.classList.add('js-loaded');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, {threshold:0.07});
-docume
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if(t){ e.preventDefault(); window.scrollTo({top: t.getBoundingClientRect().top+window.scrollY-64, behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
