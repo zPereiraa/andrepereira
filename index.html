@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>André Pereira • Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root {
   --accent: #3b82f6;
@@ -32,7 +32,7 @@ nav {
 }
 nav.light { background: rgba(255,255,255,0.95); border-bottom-color: var(--border); }
 .logo {
-  font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700;
   color: #e8e8e0; text-decoration: none; letter-spacing: -.01em;
   display: flex; align-items: center; gap: .5rem; transition: color .4s;
 }
@@ -70,32 +70,26 @@ nav.light .nav-links a:hover { color: var(--text); }
   display: flex; align-items: center; justify-content: space-between;
   gap: 4rem;
 }
-
 .hero-content { flex: 1; }
 
 /* PHOTO */
 .hero-photo-wrap {
-  flex-shrink: 0;
-  position: relative;
+  flex-shrink: 0; position: relative;
   display: flex; align-items: center; justify-content: center;
   animation: fadeUp .7s .5s both;
 }
 .hero-photo-wrap::before {
-  content: '';
-  position: absolute;
+  content: ''; position: absolute;
   width: 390px; height: 390px; border-radius: 50%;
   background: radial-gradient(circle, rgba(59,130,246,.22) 0%, rgba(59,130,246,.08) 50%, transparent 75%);
   z-index: 0; filter: blur(6px);
 }
 .hero-photo {
   width: 300px; height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
+  border-radius: 50%; object-fit: cover; object-position: center top;
   border: 2.5px solid rgba(59,130,246,.35);
   box-shadow: 0 0 40px rgba(59,130,246,.2), 0 20px 50px rgba(0,0,0,.5);
-  position: relative; z-index: 1;
-  display: block;
+  position: relative; z-index: 1; display: block;
 }
 
 .hero-badge {
@@ -108,9 +102,9 @@ nav.light .nav-links a:hover { color: var(--text); }
 .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulse 1.6s ease-in-out infinite; }
 .hero-sub { font-size: .75rem; color: rgba(255,255,255,.35); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1rem; animation: fadeUp .7s .2s both; }
 h1 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(3.2rem, 7vw, 6rem);
-  font-weight: 800; line-height: .93; letter-spacing: -.04em;
+  font-weight: 800; line-height: .93; letter-spacing: -.03em;
   color: #fff; margin-bottom: 1.8rem;
   animation: fadeUp .7s .3s both;
 }
@@ -135,7 +129,7 @@ h1 em { font-style: normal; color: var(--accent); }
 .section-inner { max-width: 1100px; margin: 0 auto; }
 .sec-label { font-size: .68rem; color: var(--accent); letter-spacing: .18em; text-transform: uppercase; margin-bottom: .6rem; display: flex; align-items: center; gap: .7rem; }
 .sec-label::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
-h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -.03em; color: var(--text); margin-bottom: 3rem; }
+h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -.03em; color: var(--text); margin-bottom: 3rem; }
 
 /* ABOUT */
 #about { background: var(--white); }
@@ -161,7 +155,7 @@ h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); f
 .edu-card-top > div { flex: 1; }
 .edu-logo { height: 40px; width: auto; object-fit: contain; opacity: .85; flex-shrink: 0; margin-top: .2rem; }
 .edu-year { font-size: .71rem; color: var(--accent); letter-spacing: .07em; margin-bottom: .6rem; }
-.edu-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: .25rem; }
+.edu-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: .25rem; }
 .edu-org { font-size: .8rem; color: var(--text-muted); margin-bottom: .7rem; }
 .edu-desc { font-size: .875rem; color: var(--text-muted); line-height: 1.8; }
 .edu-badge { display: inline-block; margin-top: .75rem; font-size: .67rem; padding: .18rem .6rem; background: var(--accent-light); border: 1px solid #bfdbfe; border-radius: 4px; color: #1d4ed8; letter-spacing: .04em; }
@@ -174,7 +168,7 @@ h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); f
 .proj-featured-badge { position: absolute; top: 1rem; right: 1rem; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: #d97706; background: #fffbeb; border: 1px solid #fde68a; padding: .18rem .55rem; border-radius: 4px; }
 .proj-icon { width: 40px; height: 40px; border-radius: 9px; background: var(--accent-light); border: 1px solid #bfdbfe; display: flex; align-items: center; justify-content: center; color: var(--accent); margin-bottom: 1.1rem; }
 .proj-year { font-size: .7rem; color: var(--text-dim); margin-bottom: .4rem; }
-.proj-title { font-family: 'Syne', sans-serif; font-size: .98rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; line-height: 1.35; }
+.proj-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .98rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; line-height: 1.35; }
 .proj-desc { font-size: .845rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.1rem; }
 .proj-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
 .ptag { font-size: .67rem; padding: .17rem .55rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); }
@@ -188,7 +182,7 @@ h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); f
 .exp-item::before { content: ''; position: absolute; left: -1.5rem; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--white); border: 2px solid var(--border); transition: border-color .25s, box-shadow .25s; }
 .exp-item:hover::before { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-light); }
 .exp-date { font-size: .7rem; color: var(--accent); letter-spacing: .06em; margin-bottom: .45rem; }
-.exp-role { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
+.exp-role { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
 .exp-org { font-size: .79rem; color: var(--text-muted); margin-bottom: .65rem; }
 .exp-desc { font-size: .875rem; color: var(--text-muted); line-height: 1.85; }
 .exp-desc strong { color: var(--text); }
@@ -196,7 +190,7 @@ h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); f
 /* CONTACT */
 #contact { background: var(--white); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-.contact-heading { font-family: 'Syne', sans-serif; font-size: clamp(1.7rem,3.5vw,2.5rem); font-weight: 700; color: var(--text); letter-spacing: -.03em; line-height: 1.2; margin-bottom: 1rem; }
+.contact-heading { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.7rem,3.5vw,2.5rem); font-weight: 700; color: var(--text); letter-spacing: -.03em; line-height: 1.2; margin-bottom: 1rem; }
 .contact-sub { font-size: .93rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 1.8rem; }
 .c-links { display: flex; flex-direction: column; }
 .c-link { display: flex; align-items: center; gap: 1rem; padding: .9rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text-muted); transition: all .25s; }
@@ -210,7 +204,6 @@ h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); f
 
 /* FOOTER */
 footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: .73rem; color: var(--text-dim); }
-
 .divider { height: 1px; background: var(--border); }
 
 /* ANIMATIONS */
