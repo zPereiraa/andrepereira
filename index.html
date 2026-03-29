@@ -50,7 +50,7 @@ nav.light .nav-links a:hover { color: var(--text); }
 /* HERO */
 #hero {
   min-height: 100vh;
-  background: #080c14;
+  background: #060910;
   display: flex; align-items: center;
   padding: 7rem 3rem 5rem;
   position: relative; overflow: hidden;
@@ -58,9 +58,19 @@ nav.light .nav-links a:hover { color: var(--text); }
 #hero::before {
   content: ''; position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 55% 55% at 75% 35%, rgba(59,130,246,.1) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 50% at 15% 75%, rgba(99,102,241,.06) 0%, transparent 55%);
+    radial-gradient(ellipse 70% 60% at 78% 18%, rgba(59,130,246,.14) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(99,102,241,.1) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 30% at 50% 50%, rgba(15,23,42,.5) 0%, transparent 70%);
   pointer-events: none;
+}
+#hero-grid {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
 }
 #bg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 
@@ -80,10 +90,20 @@ nav.light .nav-links a:hover { color: var(--text); }
 }
 .hero-photo-wrap::before {
   content: ''; position: absolute;
-  width: 390px; height: 390px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(59,130,246,.22) 0%, rgba(59,130,246,.08) 50%, transparent 75%);
-  z-index: 0; filter: blur(6px);
+  width: 320px; height: 320px; border-radius: 50%;
+  border: 1.5px solid transparent;
+  background: linear-gradient(#060910, #060910) padding-box,
+              linear-gradient(135deg, rgba(59,130,246,.7) 0%, transparent 40%, rgba(99,102,241,.5) 70%, transparent 100%) border-box;
+  animation: spinRing 7s linear infinite;
+  z-index: 2;
 }
+.hero-photo-wrap::after {
+  content: ''; position: absolute;
+  width: 290px; height: 290px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,.28) 0%, rgba(59,130,246,.06) 55%, transparent 75%);
+  filter: blur(20px); z-index: 0;
+}
+@keyframes spinRing { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 .hero-photo {
   width: 300px; height: 300px;
   border-radius: 50%; object-fit: cover; object-position: center top;
@@ -92,28 +112,32 @@ nav.light .nav-links a:hover { color: var(--text); }
   position: relative; z-index: 1; display: block;
 }
 
-.hero-badge {
-  display: inline-flex; align-items: center; gap: .45rem;
-  background: rgba(59,130,246,.1); border: 1px solid rgba(59,130,246,.22);
-  color: #93c5fd; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
-  padding: .35rem .9rem; border-radius: 20px; margin-bottom: 1.8rem;
-  animation: fadeUp .7s .1s both;
+.hero-sub {
+  font-size: .72rem; color: rgba(255,255,255,.3);
+  letter-spacing: .18em; text-transform: uppercase;
+  margin-bottom: 1.2rem; animation: fadeUp .7s .15s both;
+  display: flex; align-items: center; gap: .8rem;
 }
-.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulse 1.6s ease-in-out infinite; }
-.hero-sub { font-size: .75rem; color: rgba(255,255,255,.35); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1rem; animation: fadeUp .7s .2s both; }
+.hero-sub::before { content: ''; width: 28px; height: 1px; background: rgba(59,130,246,.7); display: block; flex-shrink:0; }
 h1 {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(3.2rem, 7vw, 6rem);
-  font-weight: 800; line-height: .93; letter-spacing: -.03em;
-  color: #fff; margin-bottom: 1.8rem;
+  font-size: clamp(3.8rem, 8.5vw, 7rem);
+  font-weight: 800; line-height: .88; letter-spacing: -.04em;
+  color: #fff; margin-bottom: .5rem;
   animation: fadeUp .7s .3s both;
 }
 h1 em { font-style: normal; color: var(--accent); }
+.hero-name-line {
+  width: 55px; height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(99,102,241,.4));
+  border-radius: 2px; margin-bottom: 1.8rem;
+  animation: fadeUp .7s .38s both;
+}
 .hero-desc { font-size: .97rem; color: rgba(255,255,255,.45); max-width: 440px; line-height: 1.9; margin-bottom: 2.2rem; font-weight: 300; animation: fadeUp .7s .4s both; }
 .hero-desc strong { color: rgba(255,255,255,.75); font-weight: 500; }
 .hero-btns { display: flex; gap: .8rem; flex-wrap: wrap; animation: fadeUp .7s .5s both; }
-.btn-blue { display: inline-flex; align-items: center; gap: .45rem; background: var(--accent); color: #fff; font-size: .8rem; font-weight: 600; padding: .65rem 1.4rem; border-radius: 7px; text-decoration: none; transition: all .25s; }
-.btn-blue:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(59,130,246,.35); }
+.btn-blue { display: inline-flex; align-items: center; gap: .45rem; background: var(--accent); color: #fff; font-size: .8rem; font-weight: 600; padding: .72rem 1.5rem; border-radius: 7px; text-decoration: none; transition: all .25s; box-shadow: 0 4px 20px rgba(59,130,246,.3); }
+.btn-blue:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(59,130,246,.45); }
 .btn-outline { display: inline-flex; align-items: center; gap: .45rem; background: transparent; color: rgba(255,255,255,.5); font-size: .8rem; font-weight: 500; padding: .65rem 1.4rem; border-radius: 7px; text-decoration: none; border: 1px solid rgba(255,255,255,.12); transition: all .25s; }
 .btn-outline:hover { color: #fff; border-color: rgba(255,255,255,.3); }
 .hero-socials { display: flex; gap: .7rem; margin-top: 2.2rem; animation: fadeUp .7s .6s both; }
@@ -248,12 +272,13 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
 </nav>
 
 <section id="hero">
+  <div id="hero-grid"></div>
   <canvas id="bg-canvas"></canvas>
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-badge"><span class="badge-dot"></span>Open to new opportunities</div>
       <p class="hero-sub">Telecommunications & Computer Engineering · IST Lisbon</p>
       <h1>André<br><em>Pereira</em></h1>
+      <div class="hero-name-line"></div>
       <p class="hero-desc"><strong>Master's student at Instituto Superior Técnico.</strong> Researching AI-driven application integration. Focused on networks, security and automation.</p>
       <div class="hero-btns">
         <a href="#contact" class="btn-blue">
