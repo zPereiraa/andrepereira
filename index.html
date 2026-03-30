@@ -196,6 +196,13 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .skill-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
 .stag { font-size: .71rem; padding: .17rem .55rem; background: var(--accent-light); border: 1px solid #bfdbfe; border-radius: 4px; color: #1d4ed8; }
 
+/* Language bars */
+.lang-bar-row { display: flex; align-items: center; gap: .6rem; }
+.lang-name { font-size: .72rem; color: var(--text); font-weight: 500; min-width: 72px; }
+.lang-bar-wrap { flex: 1; height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.lang-bar { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--accent), #93c5fd); transition: width .6s cubic-bezier(.22,1,.36,1); }
+.lang-level { font-size: .65rem; color: var(--accent); font-weight: 600; letter-spacing: .05em; min-width: 34px; text-align: right; }
+
 /* EDUCATION */
 #education { background: var(--surface); }
 .edu-list { display: flex; flex-direction: column; gap: 1.2rem; }
@@ -408,7 +415,26 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="skill-row"><span class="skill-key">Web</span><div class="skill-tags"><span class="stag">HTML</span><span class="stag">CSS</span></div></div>
         <div class="skill-row"><span class="skill-key">Data</span><div class="skill-tags"><span class="stag">PostgreSQL</span><span class="stag">R</span></div></div>
         <div class="skill-row"><span class="skill-key">Tools</span><div class="skill-tags"><span class="stag">n8n</span><span class="stag">GNS3</span></div></div>
-        <div class="skill-row"><span class="skill-key">Languages</span><div class="skill-tags"><span class="stag">Portuguese</span><span class="stag">English B1</span><span class="stag">French</span></div></div>
+        <div class="skill-row" style="flex-direction:column;align-items:stretch;gap:.6rem;">
+          <span class="skill-key">Spoken Languages</span>
+          <div style="display:flex;flex-direction:column;gap:.5rem;">
+            <div class="lang-bar-row">
+              <span class="lang-name">Portuguese</span>
+              <div class="lang-bar-wrap"><div class="lang-bar" style="width:100%"></div></div>
+              <span class="lang-level">Native</span>
+            </div>
+            <div class="lang-bar-row">
+              <span class="lang-name">English</span>
+              <div class="lang-bar-wrap"><div class="lang-bar" style="width:50%"></div></div>
+              <span class="lang-level">B1–B2</span>
+            </div>
+            <div class="lang-bar-row">
+              <span class="lang-name">French</span>
+              <div class="lang-bar-wrap"><div class="lang-bar" style="width:10%"></div></div>
+              <span class="lang-level">A1</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
