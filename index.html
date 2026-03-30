@@ -55,14 +55,12 @@ nav.light .nav-links a:hover { color: var(--text); }
   padding: 7rem 3rem 5rem;
   position: relative; overflow: hidden;
 }
-/* Gradient blobs */
 #hero::before {
   content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
   background:
     radial-gradient(ellipse 65% 55% at 85% 15%, rgba(96,165,250,.22) 0%, transparent 55%),
     radial-gradient(ellipse 45% 55% at 8% 85%, rgba(147,197,253,.12) 0%, transparent 50%);
 }
-/* Dot grid */
 #hero::after {
   content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
   background-image: radial-gradient(rgba(255,255,255,.15) 1px, transparent 1px);
@@ -80,14 +78,12 @@ nav.light .nav-links a:hover { color: var(--text); }
 }
 .hero-content { flex: 1; min-width: 0; }
 
-/* PHOTO */
 .hero-photo-wrap {
   flex-shrink: 0; position: relative;
   display: flex; align-items: center; justify-content: center;
   animation: fadeUp .8s .5s both;
   width: 300px; height: 300px;
 }
-/* Outer glow ring */
 .hero-photo-ring {
   position: absolute; inset: -18px;
   border-radius: 50%;
@@ -102,7 +98,6 @@ nav.light .nav-links a:hover { color: var(--text); }
   box-shadow: 0 0 14px 5px rgba(147,197,253,.5);
 }
 @keyframes spinRing { to { transform: rotate(360deg); } }
-/* Glow behind photo */
 .hero-photo-glow {
   position: absolute; inset: -10px; border-radius: 50%;
   background: radial-gradient(circle, rgba(147,197,253,.35) 0%, transparent 70%);
@@ -116,7 +111,6 @@ nav.light .nav-links a:hover { color: var(--text); }
   display: block; position: relative; z-index: 1;
 }
 
-/* Hero text */
 .hero-eyebrow {
   display: flex; align-items: center; gap: .8rem;
   font-size: .7rem; color: rgba(255,255,255,.55);
@@ -231,6 +225,63 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .proj-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
 .ptag { font-size: .67rem; padding: .17rem .55rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); }
 
+/* ── CAROUSEL ── */
+.proj-carousel {
+  position: relative;
+  width: calc(100% + 3.6rem);
+  margin: 0 -1.8rem 1.2rem;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  background: #0f172a;
+  aspect-ratio: 16/9;
+}
+.proj-carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+}
+.proj-carousel-slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+.proj-carousel-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.proj-carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.15);
+  color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .2s, opacity .2s; z-index: 2;
+  opacity: 0;
+}
+.proj-carousel:hover .proj-carousel-btn { opacity: 1; }
+.proj-carousel-btn:hover { background: rgba(59,130,246,.75); border-color: transparent; }
+.proj-carousel-btn.prev { left: .6rem; }
+.proj-carousel-btn.next { right: .6rem; }
+.proj-carousel-dots {
+  position: absolute; bottom: .55rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: .35rem; z-index: 2;
+}
+.proj-carousel-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,.4); border: none; padding: 0; cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.proj-carousel-dot.active { background: #fff; transform: scale(1.25); }
+
+/* Card with carousel — remove top padding so image bleeds to edge */
+.proj-card.has-carousel {
+  padding-top: 0;
+  overflow: hidden;
+}
+.proj-card.has-carousel .proj-icon { margin-top: 1.4rem; }
+
 /* EXPERIENCE */
 #experience { background: var(--surface); }
 .exp-list { position: relative; padding-left: 1.5rem; }
@@ -278,7 +329,6 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
   .hero-inner { flex-direction: column-reverse; gap: 2.5rem; }
   .hero-photo { width: 220px; height: 220px; }
   .hero-photo-wrap { width: 220px; height: 220px; }
-
   .scroll-hint { left: 1.5rem; }
   .section { padding: 4rem 1.5rem; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -329,7 +379,7 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <a href="https://linkedin.com/in/andrepereiraa03/" target="_blank" class="soc" title="LinkedIn">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
         </a>
-        <a href="/cdn-cgi/l/email-protection#d6b7b8b2a4b3f8b7b1a3bfb7a4f8a6b3a4b3bfa4b796a2b3b5b8bfb5b9f8a3babfa5b4b9b7f8a6a2" class="soc" title="Email">
+        <a href="mailto:andre.pereira@tecnico.ulisboa.pt" class="soc" title="Email">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
         </a>
       </div>
@@ -420,6 +470,8 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
     <div class="reveal"><p class="sec-label">What I've built</p></div>
     <div class="reveal d1"><h2>Projects</h2></div>
     <div class="proj-grid">
+
+      <!-- THESIS -->
       <div class="proj-card reveal d1">
         <span class="proj-featured-badge">✦ Thesis</span>
         <div class="proj-icon">
@@ -430,16 +482,51 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="proj-desc">Research on leveraging AI to integrate internally-built applications in business environments. Focus on workflow automation and system interoperability using n8n.</div>
         <div class="proj-tags"><span class="ptag">AI</span><span class="ptag">n8n</span><span class="ptag">Integration</span><span class="ptag">Automation</span></div>
       </div>
-      <div class="proj-card reveal d2">
+
+      <!-- CENTURION / VEHICULAR NETWORKS — with carousel -->
+      <div class="proj-card has-carousel reveal d2">
         <span class="proj-featured-badge">🏆 1st Place</span>
+
+        <!-- Carousel -->
+        <div class="proj-carousel" id="carousel-centurion">
+          <div class="proj-carousel-track" id="carousel-centurion-track">
+            <div class="proj-carousel-slide">
+              <img src="centurion/centurion_1.jpg" alt="Centurion — team at the event" loading="lazy"/>
+            </div>
+            <div class="proj-carousel-slide">
+              <img src="centurion/centurion_2.jpg" alt="Centurion — field test on e-scooter" loading="lazy"/>
+            </div>
+            <div class="proj-carousel-slide">
+              <img src="centurion/centurion_3.jpg" alt="Centurion — presentation at IST" loading="lazy"/>
+            </div>
+            <div class="proj-carousel-slide">
+              <img src="centurion/centurion_4.jpg" alt="Centurion — smart helmet prototype" loading="lazy"/>
+            </div>
+          </div>
+          <button class="proj-carousel-btn prev" aria-label="Previous" onclick="carouselMove('centurion',-1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="proj-carousel-btn next" aria-label="Next" onclick="carouselMove('centurion',1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="proj-carousel-dots" id="carousel-centurion-dots">
+            <button class="proj-carousel-dot active" onclick="carouselGo('centurion',0)" aria-label="Slide 1"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('centurion',1)" aria-label="Slide 2"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('centurion',2)" aria-label="Slide 3"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('centurion',3)" aria-label="Slide 4"></button>
+          </div>
+        </div>
+
         <div class="proj-icon">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="proj-year">2024 — 2025</div>
-        <div class="proj-title">Vehicular Networks Project</div>
-        <div class="proj-desc">Group project awarded best across all classes at IST, in the Vehicular Networks course unit.</div>
-        <div class="proj-tags"><span class="ptag">Vehicular Networks</span><span class="ptag">C-ITS</span><span class="ptag">Telecom</span></div>
+        <div class="proj-title">Centurion — Vehicular Networks Project</div>
+        <div class="proj-desc">Smart helmet with embedded hardware for C-ITS communication, tested on an e-scooter. Awarded best project across all classes at IST in the Vehicular Networks course.</div>
+        <div class="proj-tags"><span class="ptag">C-ITS</span><span class="ptag">Vehicular Networks</span><span class="ptag">Embedded</span><span class="ptag">Telecom</span></div>
       </div>
+
+      <!-- SOCIAL MEDIA -->
       <div class="proj-card reveal d3">
         <div class="proj-icon">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
@@ -449,6 +536,7 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="proj-desc">Creating and managing digital content for a sports association, reaching thousands of followers. Content strategy, editorial planning and organic growth.</div>
         <div class="proj-tags"><span class="ptag">Digital Marketing</span><span class="ptag">Social Media</span><span class="ptag">Strategy</span></div>
       </div>
+
     </div>
   </div>
 </section>
@@ -494,7 +582,7 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <h2 class="contact-heading">Ready for a new challenge</h2>
         <p class="contact-sub">Open to professional opportunities, collaborations or just a conversation about technology — don't hesitate to reach out.</p>
         <div style="display:flex;gap:.8rem;flex-wrap:wrap;">
-          <a href="/cdn-cgi/l/email-protection#1f7e717b6d7a317e786a767e6d316f7a6d7a766d7e5f6b7a7c71767c70316a73766c7d707e316f6b" class="btn-blue">
+          <a href="mailto:andre.pereira@tecnico.ulisboa.pt" class="btn-blue">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Send Email
           </a>
@@ -502,9 +590,9 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         </div>
       </div>
       <div class="c-links reveal d2">
-        <a href="/cdn-cgi/l/email-protection#bcddd2d8ced992dddbc9d5ddce92ccd9ced9d5ceddfcc8d9dfd2d5dfd392c9d0d5cfded3dd92ccc8" class="c-link">
+        <a href="mailto:andre.pereira@tecnico.ulisboa.pt" class="c-link">
           <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></div>
-          <div class="c-info"><span class="c-label">Email</span><span class="c-val"><span class="__cf_email__" data-cfemail="fd9c93998f98d39c9a88949c8fd38d988f98948f9cbd89989e93949e92d38891948e9f929cd38d89">[email&#160;protected]</span></span></div>
+          <div class="c-info"><span class="c-label">Email</span><span class="c-val">andre.pereira@tecnico.ulisboa.pt</span></div>
         </a>
         <a href="https://linkedin.com/in/andrepereiraa03/" target="_blank" class="c-link">
           <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></div>
@@ -528,10 +616,12 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
   <span id="last-updated"></span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+/* ── last updated ── */
 document.getElementById('last-updated').textContent =
   'Updated: ' + new Date(document.lastModified).toLocaleDateString('en-GB', {day:'2-digit',month:'long',year:'numeric'});
 
+/* ── nav scroll ── */
 const navEl = document.getElementById('nav');
 const heroEl = document.getElementById('hero');
 function updateNav() {
@@ -540,19 +630,18 @@ function updateNav() {
 window.addEventListener('scroll', updateNav, {passive:true});
 updateNav();
 
+/* ── animated canvas ── */
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let W, H;
 function resize() { W = canvas.width = heroEl.offsetWidth; H = canvas.height = heroEl.offsetHeight; }
 resize();
 window.addEventListener('resize', resize);
-
 const pts = Array.from({length:50}, () => ({
   x: Math.random()*1920, y: Math.random()*1080,
   vx: (Math.random()-.5)*.28, vy: (Math.random()-.5)*.28,
   r: Math.random()*1.3+.4, o: Math.random()*.3+.07
 }));
-
 function draw() {
   ctx.clearRect(0,0,W,H);
   pts.forEach(p => {
@@ -573,7 +662,45 @@ function draw() {
 }
 draw();
 
+/* ── scroll reveal ── */
 document.documentElement.classList.add('js-loaded');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
-}, {thresho
+}, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ── carousel ── */
+const carousels = {};
+function carouselInit(id) {
+  carousels[id] = { current: 0, total: document.querySelectorAll(`#carousel-${id} .proj-carousel-slide`).length };
+}
+carouselInit('centurion');
+
+function carouselGo(id, index) {
+  const c = carousels[id];
+  c.current = (index + c.total) % c.total;
+  document.getElementById(`carousel-${id}-track`).style.transform = `translateX(-${c.current * 100}%)`;
+  document.querySelectorAll(`#carousel-${id}-dots .proj-carousel-dot`).forEach((d, i) => {
+    d.classList.toggle('active', i === c.current);
+  });
+}
+function carouselMove(id, dir) {
+  carouselGo(id, carousels[id].current + dir);
+}
+
+/* Auto-advance every 4 s */
+setInterval(() => carouselMove('centurion', 1), 4000);
+
+/* Touch/swipe support */
+(function() {
+  const el = document.getElementById('carousel-centurion');
+  let startX = 0;
+  el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  el.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) carouselMove('centurion', diff > 0 ? 1 : -1);
+  });
+})();
+</script>
+</body>
+</html>
