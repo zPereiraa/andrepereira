@@ -560,6 +560,32 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="exp-role">"O Meu Futuro Financeiro" Competition</div>
         <div class="exp-org">Banco de Portugal</div>
         <div class="exp-desc">Financial literacy competition with over 700 students. The team achieved <strong>5th place</strong>, developing skills in critical thinking and financial analysis.</div>
+
+        <!-- Inline photo carousel -->
+        <div class="proj-carousel" id="carousel-csl" style="width:100%;margin:1rem 0 0;border-radius:8px;aspect-ratio:16/9;max-width:560px;">
+          <div class="proj-carousel-track" id="carousel-csl-track">
+            <div class="proj-carousel-slide"><img src="concurso_banco_de_portugal/concurso_1.jpg" alt="O Meu Futuro Financeiro — event" loading="lazy"/></div>
+            <div class="proj-carousel-slide"><img src="concurso_banco_de_portugal/concurso_2.jpg" alt="O Meu Futuro Financeiro — presentation" loading="lazy"/></div>
+            <div class="proj-carousel-slide"><img src="concurso_banco_de_portugal/concurso_3.jpg" alt="O Meu Futuro Financeiro — speaking" loading="lazy"/></div>
+            <div class="proj-carousel-slide"><img src="concurso_banco_de_portugal/concurso_4.jpg" alt="O Meu Futuro Financeiro — group photo" loading="lazy"/></div>
+            <div class="proj-carousel-slide"><img src="concurso_banco_de_portugal/concurso_5.jpg" alt="O Meu Futuro Financeiro — certificates" loading="lazy"/></div>
+            <div class="proj-carousel-slide"><img src="concurso_banco_de_portugal/concurso_6.jpg" alt="O Meu Futuro Financeiro — team" loading="lazy"/></div>
+          </div>
+          <button class="proj-carousel-btn prev" aria-label="Previous" onclick="carouselMove('csl',-1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="proj-carousel-btn next" aria-label="Next" onclick="carouselMove('csl',1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="proj-carousel-dots" id="carousel-csl-dots">
+            <button class="proj-carousel-dot active" onclick="carouselGo('csl',0)" aria-label="Slide 1"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('csl',1)" aria-label="Slide 2"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('csl',2)" aria-label="Slide 3"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('csl',3)" aria-label="Slide 4"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('csl',4)" aria-label="Slide 5"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('csl',5)" aria-label="Slide 6"></button>
+          </div>
+        </div>
       </div>
       <div class="exp-item reveal d3">
         <div class="exp-date">Recurring</div>
@@ -675,6 +701,7 @@ function carouselInit(id) {
   carousels[id] = { current: 0, total: document.querySelectorAll(`#carousel-${id} .proj-carousel-slide`).length };
 }
 carouselInit('centurion');
+carouselInit('csl');
 
 function carouselGo(id, index) {
   const c = carousels[id];
@@ -690,6 +717,7 @@ function carouselMove(id, dir) {
 
 /* Auto-advance every 4 s */
 setInterval(() => carouselMove('centurion', 1), 4000);
+setInterval(() => carouselMove('csl', 1), 4700);
 
 /* Touch/swipe support */
 (function() {
@@ -699,6 +727,15 @@ setInterval(() => carouselMove('centurion', 1), 4000);
   el.addEventListener('touchend', e => {
     const diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) carouselMove('centurion', diff > 0 ? 1 : -1);
+  });
+})();
+(function() {
+  const el = document.getElementById('carousel-csl');
+  let startX = 0;
+  el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  el.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) carouselMove('csl', diff > 0 ? 1 : -1);
   });
 })();
 </script>
