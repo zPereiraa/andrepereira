@@ -212,22 +212,39 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 
 /* PROJECTS */
 #projects { background: var(--white); }
-
-/* 2-column grid; thesis spans full width on row 2 */
 .proj-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.2rem;
 }
-/* Thesis goes to row 2, col 1 only */
 .proj-card-thesis {
   grid-column: 1;
   grid-row: 2;
 }
-
 .proj-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.8rem; transition: border-color .25s, box-shadow .3s, transform .3s cubic-bezier(.22,1,.36,1); position: relative; }
 .proj-card:hover { border-color: #bfdbfe; transform: translateY(-4px); box-shadow: 0 12px 35px rgba(59,130,246,.08); }
 .proj-featured-badge { position: absolute; top: 1rem; right: 1rem; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: #d97706; background: #fffbeb; border: 1px solid #fde68a; padding: .18rem .55rem; border-radius: 4px; }
+
+/* Project logo replacing icon */
+.proj-logo-wrap {
+  height: 40px;
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+.proj-logo-wrap img {
+  height: 100%;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
+/* ChargIST logo is square — keep it small */
+.proj-logo-wrap.square img {
+  height: 40px;
+  width: 40px;
+  border-radius: 9px;
+}
+
 .proj-icon { width: 40px; height: 40px; border-radius: 9px; background: var(--accent-light); border: 1px solid #bfdbfe; display: flex; align-items: center; justify-content: center; color: var(--accent); margin-bottom: 1.1rem; }
 .proj-year { font-size: .7rem; color: var(--text-dim); margin-bottom: .4rem; }
 .proj-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .98rem; font-weight: 700; color: var(--text); margin-bottom: .6rem; line-height: 1.35; }
@@ -263,7 +280,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .proj-carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.4); border: none; padding: 0; cursor: pointer; transition: background .2s, transform .2s; }
 .proj-carousel-dot.active { background: #fff; transform: scale(1.25); }
 .proj-card.has-carousel { padding-top: 0; overflow: hidden; }
-.proj-card.has-carousel .proj-icon { margin-top: 1.4rem; }
+.proj-card.has-carousel .proj-logo-wrap { margin-top: 1.4rem; }
 
 /* ChargIST card */
 .chargist-card {
@@ -288,9 +305,8 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .chargist-right { padding: 1.4rem 1.8rem; display: flex; flex-direction: column; gap: .4rem; }
 .chargist-right .proj-title { font-size: 1.1rem; }
 .chargist-right .proj-desc { font-size: .875rem; }
+.chargist-right .proj-logo-wrap { margin-bottom: .6rem; }
 
-.chargist-slide-logo { background: #f0f0f0; display: flex !important; align-items: center; justify-content: center; height: 100%; }
-.chargist-slide-logo img { width: 80%; height: auto; object-fit: contain !important; }
 .chargist-slide-single {
   display: flex !important; flex-direction: column; align-items: center;
   justify-content: flex-start; gap: 6px; padding: 10px 10px 8px;
@@ -538,12 +554,12 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
             <button class="proj-carousel-dot" onclick="carouselGo('centurion',3)" aria-label="Slide 4"></button>
           </div>
         </div>
-        <div class="proj-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="proj-logo-wrap">
+          <img src="centurion/centurion_logo.png" alt="Centurion"/>
         </div>
-        <div class="proj-year">2024 — 2025</div>
+        <div class="proj-year">November 2025 — January 2026</div>
         <div class="proj-title">Centurion — Vehicular Networks Project</div>
-        <div class="proj-desc">Smart helmet with embedded hardware for C-ITS communication, tested on an e-scooter. Awarded best project across all classes at IST in the Vehicular Networks course.</div>
+        <div class="proj-desc">Development of CENTURION, a smart helmet that detects approaching vehicles and alerts the rider through sound and LEDs. The project features C-ITS communication, was tested on e-scooters, and was awarded best project in the Vehicular Networks course.</div>
         <div class="proj-tags"><span class="ptag">C-ITS</span><span class="ptag">Vehicular Networks</span><span class="ptag">Embedded</span><span class="ptag">Telecom</span></div>
       </div>
 
@@ -605,8 +621,8 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
             </div>
           </div>
           <div class="chargist-right">
-            <div class="proj-icon">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <div class="proj-logo-wrap">
+              <img src="chargist/chargIST_logo.png" alt="ChargIST"/>
             </div>
             <div class="proj-year">January 2025 — June 2025</div>
             <div class="proj-title">ChargIST — Mobile and Ubiquitous Computing</div>
@@ -619,8 +635,8 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
       <!-- ROW 2 COL 1: THESIS -->
       <div class="proj-card proj-card-thesis reveal d3">
         <span class="proj-featured-badge">✦ Thesis</span>
-        <div class="proj-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <div class="proj-logo-wrap">
+          <img src="images/icon_thesis.png" alt="Thesis"/>
         </div>
         <div class="proj-year">2025 — 2026</div>
         <div class="proj-title">Using AI for Integrating Custom-Made Applications</div>
