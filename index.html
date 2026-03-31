@@ -222,6 +222,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 /* PROJECTS */
 #projects { background: var(--white); }
 .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.proj-card-wide { grid-column: span 3; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
 .proj-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.8rem; transition: border-color .25s, box-shadow .3s, transform .3s cubic-bezier(.22,1,.36,1); position: relative; }
 .proj-card:hover { border-color: #bfdbfe; transform: translateY(-4px); box-shadow: 0 12px 35px rgba(59,130,246,.08); }
 .proj-featured-badge { position: absolute; top: 1rem; right: 1rem; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: #d97706; background: #fffbeb; border: 1px solid #fde68a; padding: .18rem .55rem; border-radius: 4px; }
@@ -282,12 +283,17 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 }
 .proj-carousel-dot.active { background: #fff; transform: scale(1.25); }
 
-.proj-card.has-carousel { padding-top: 0; overflow: hidden; }
+.proj-card-empty {
+  border: 2px dashed var(--border);
+  background: var(--surface);
+  min-height: 100px;
+  pointer-events: none;
+}
 .proj-card.has-carousel .proj-icon { margin-top: 1.4rem; }
 
 /* ChargIST full-width card — vertical layout */
 .chargist-card {
-  grid-column: auto;
+  grid-column: 1 / -1;
   padding: 0 !important;
   overflow: hidden;
 }
@@ -304,7 +310,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .chargist-carousel {
   position: relative;
   width: 100% !important;
-  height: 380px !important;
+  height: 400px !important;
   aspect-ratio: unset !important;
   overflow: hidden;
   background: #1a1a2e;
@@ -621,6 +627,9 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
     <div class="reveal d1"><h2>Projects</h2></div>
     <div class="proj-grid">
 
+      <!-- ROW 1: Thesis + Centurion (2 cards, centred) -->
+      <div class="proj-card-wide">
+
       <!-- THESIS -->
       <div class="proj-card reveal d1">
         <span class="proj-featured-badge">✦ Thesis</span>
@@ -664,6 +673,8 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="proj-desc">Smart helmet with embedded hardware for C-ITS communication, tested on an e-scooter. Awarded best project across all classes at IST in the Vehicular Networks course.</div>
         <div class="proj-tags"><span class="ptag">C-ITS</span><span class="ptag">Vehicular Networks</span><span class="ptag">Embedded</span><span class="ptag">Telecom</span></div>
       </div>
+
+      </div><!-- end row 1 -->
 
       <!-- CHARGIST — full-width side-by-side card -->
       <div class="proj-card chargist-card reveal d1">
@@ -744,6 +755,12 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
 
         </div>
       </div>
+
+      <!-- empty slot 2 -->
+      <div class="proj-card proj-card-empty reveal d2"></div>
+
+      <!-- empty slot 3 -->
+      <div class="proj-card proj-card-empty reveal d3"></div>
 
     </div>
   </div>
