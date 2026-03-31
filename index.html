@@ -285,7 +285,50 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .proj-card.has-carousel { padding-top: 0; overflow: hidden; }
 .proj-card.has-carousel .proj-icon { margin-top: 1.4rem; }
 
-/* ChargIST group carousel — taller to fit portrait screenshots */
+/* ChargIST full-width side-by-side card */
+.chargist-card {
+  grid-column: 1 / -1;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.chargist-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+}
+.chargist-left {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 0 0 10px;
+}
+.chargist-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: unset !important;
+  overflow: hidden;
+  background: #1a1a2e;
+}
+.chargist-carousel .proj-carousel-track {
+  height: 100%;
+}
+.chargist-right {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+.chargist-right .proj-title { font-size: 1.1rem; }
+.chargist-right .proj-desc { font-size: .875rem; }
+
+@media(max-width:700px) {
+  .chargist-layout { grid-template-columns: 1fr; }
+  .chargist-left { border-radius: 10px 10px 0 0; min-height: 280px; }
+  .chargist-carousel { height: 280px; }
+}
+
+/* ChargIST group carousel slides */
 .chargist-carousel {
   aspect-ratio: unset !important;
   height: 260px;
@@ -588,63 +631,73 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="proj-tags"><span class="ptag">C-ITS</span><span class="ptag">Vehicular Networks</span><span class="ptag">Embedded</span><span class="ptag">Telecom</span></div>
       </div>
 
-      <!-- CHARGIST -->
-      <div class="proj-card has-carousel reveal d3">
-        <!-- ChargIST: 3-screenshot group carousel -->
-        <div class="proj-carousel chargist-carousel" id="carousel-chargist">
-          <div class="proj-carousel-track" id="carousel-chargist-track">
+      <!-- CHARGIST — full-width side-by-side card -->
+      <div class="proj-card chargist-card reveal d3">
+        <div class="chargist-layout">
 
-            <!-- Slide 1: Logo banner -->
-            <div class="proj-carousel-slide chargist-slide-logo">
-              <img src="chargist/Logo_Retangular.png" alt="ChargIST logo" loading="lazy"/>
+          <!-- LEFT: carousel -->
+          <div class="chargist-left">
+            <div class="chargist-carousel" id="carousel-chargist">
+              <div class="proj-carousel-track" id="carousel-chargist-track">
+
+                <!-- Slide 1: Logo banner -->
+                <div class="proj-carousel-slide chargist-slide-logo">
+                  <img src="chargist/Logo_Retangular.png" alt="ChargIST logo" loading="lazy"/>
+                </div>
+
+                <!-- Slide 2: Login · Map -->
+                <div class="proj-carousel-slide chargist-slide-group">
+                  <div class="cg-phone"><img src="chargist/image9.png" alt="Login" loading="lazy"/><span class="cg-label">Login</span></div>
+                  <div class="cg-phone"><img src="chargist/image10.png" alt="Map" loading="lazy"/><span class="cg-label">Map</span></div>
+                </div>
+
+                <!-- Slide 3: Station detail · Search -->
+                <div class="proj-carousel-slide chargist-slide-group">
+                  <div class="cg-phone"><img src="chargist/image2.png" alt="Station detail" loading="lazy"/><span class="cg-label">Station</span></div>
+                  <div class="cg-phone"><img src="chargist/image11.png" alt="Search" loading="lazy"/><span class="cg-label">Search</span></div>
+                </div>
+
+                <!-- Slide 4: Filters · Results -->
+                <div class="proj-carousel-slide chargist-slide-group">
+                  <div class="cg-phone"><img src="chargist/image12.png" alt="Filters" loading="lazy"/><span class="cg-label">Filters</span></div>
+                  <div class="cg-phone"><img src="chargist/image13.png" alt="Filter results" loading="lazy"/><span class="cg-label">Results</span></div>
+                </div>
+
+                <!-- Slide 5: Favorites · Add station -->
+                <div class="proj-carousel-slide chargist-slide-group">
+                  <div class="cg-phone"><img src="chargist/image3.png" alt="Favorites" loading="lazy"/><span class="cg-label">Favorites</span></div>
+                  <div class="cg-phone"><img src="chargist/image14.png" alt="Add station" loading="lazy"/><span class="cg-label">Add Station</span></div>
+                </div>
+
+              </div>
+              <button class="proj-carousel-btn prev" aria-label="Previous" onclick="carouselMove('chargist',-1)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="proj-carousel-btn next" aria-label="Next" onclick="carouselMove('chargist',1)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+              <div class="proj-carousel-dots" id="carousel-chargist-dots">
+                <button class="proj-carousel-dot active" onclick="carouselGo('chargist',0)" aria-label="Slide 1"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',1)" aria-label="Slide 2"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',2)" aria-label="Slide 3"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',3)" aria-label="Slide 4"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',4)" aria-label="Slide 5"></button>
+              </div>
             </div>
-
-            <!-- Slide 2: Login · Map -->
-            <div class="proj-carousel-slide chargist-slide-group">
-              <div class="cg-phone"><img src="chargist/image9.png" alt="Login" loading="lazy"/><span class="cg-label">Login</span></div>
-              <div class="cg-phone"><img src="chargist/image10.png" alt="Map" loading="lazy"/><span class="cg-label">Map</span></div>
-            </div>
-
-            <!-- Slide 3: Station detail · Search -->
-            <div class="proj-carousel-slide chargist-slide-group">
-              <div class="cg-phone"><img src="chargist/image2.png" alt="Station detail" loading="lazy"/><span class="cg-label">Station</span></div>
-              <div class="cg-phone"><img src="chargist/image11.png" alt="Search" loading="lazy"/><span class="cg-label">Search</span></div>
-            </div>
-
-            <!-- Slide 4: Filters · Filter results -->
-            <div class="proj-carousel-slide chargist-slide-group">
-              <div class="cg-phone"><img src="chargist/image12.png" alt="Filters" loading="lazy"/><span class="cg-label">Filters</span></div>
-              <div class="cg-phone"><img src="chargist/image13.png" alt="Filter results" loading="lazy"/><span class="cg-label">Results</span></div>
-            </div>
-
-            <!-- Slide 5: Favorites · Add station -->
-            <div class="proj-carousel-slide chargist-slide-group">
-              <div class="cg-phone"><img src="chargist/image3.png" alt="Favorites" loading="lazy"/><span class="cg-label">Favorites</span></div>
-              <div class="cg-phone"><img src="chargist/image14.png" alt="Add station" loading="lazy"/><span class="cg-label">Add Station</span></div>
-            </div>
-
           </div>
-          <button class="proj-carousel-btn prev" aria-label="Previous" onclick="carouselMove('chargist',-1)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="proj-carousel-btn next" aria-label="Next" onclick="carouselMove('chargist',1)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <div class="proj-carousel-dots" id="carousel-chargist-dots">
-            <button class="proj-carousel-dot active" onclick="carouselGo('chargist',0)" aria-label="Slide 1"></button>
-            <button class="proj-carousel-dot" onclick="carouselGo('chargist',1)" aria-label="Slide 2"></button>
-            <button class="proj-carousel-dot" onclick="carouselGo('chargist',2)" aria-label="Slide 3"></button>
-            <button class="proj-carousel-dot" onclick="carouselGo('chargist',3)" aria-label="Slide 4"></button>
-            <button class="proj-carousel-dot" onclick="carouselGo('chargist',4)" aria-label="Slide 5"></button>
+
+          <!-- RIGHT: info -->
+          <div class="chargist-right">
+            <div class="proj-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div class="proj-year">January 2025 — June 2025</div>
+            <div class="proj-title">ChargIST — Mobile and Ubiquitous Computing</div>
+            <div class="proj-desc">Android application for locating and managing electric vehicle charging stations. Features interactive GPS maps, search and filtering by availability and charging speed, real-time data synchronisation across devices, and network optimisation with intelligent caching.</div>
+            <div class="proj-tags"><span class="ptag">Kotlin</span><span class="ptag">Java</span><span class="ptag">Android SDK</span><span class="ptag">GPS</span><span class="ptag">Real-time Sync</span></div>
           </div>
+
         </div>
-        <div class="proj-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="proj-year">January 2025 — June 2025</div>
-        <div class="proj-title">ChargIST — Mobile and Ubiquitous Computing</div>
-        <div class="proj-desc">Android application for locating and managing electric vehicle charging stations. Features interactive GPS maps, search and filtering by availability and charging speed, real-time data synchronisation across devices, and network optimisation with intelligent caching.</div>
-        <div class="proj-tags"><span class="ptag">Kotlin</span><span class="ptag">Java</span><span class="ptag">Android SDK</span><span class="ptag">GPS</span><span class="ptag">Real-time Sync</span></div>
       </div>
 
     </div>
