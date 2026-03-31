@@ -77,7 +77,6 @@ nav.light .nav-links a:hover { color: var(--text); }
   gap: 5rem;
 }
 .hero-content { flex: 1; min-width: 0; }
-
 .hero-photo-wrap {
   flex-shrink: 0; position: relative;
   display: flex; align-items: center; justify-content: center;
@@ -85,8 +84,7 @@ nav.light .nav-links a:hover { color: var(--text); }
   width: 300px; height: 300px;
 }
 .hero-photo-ring {
-  position: absolute; inset: -18px;
-  border-radius: 50%;
+  position: absolute; inset: -18px; border-radius: 50%;
   border: 1px solid rgba(147,197,253,.35);
   animation: spinRing 9s linear infinite;
 }
@@ -94,8 +92,7 @@ nav.light .nav-links a:hover { color: var(--text); }
   content: ''; position: absolute;
   top: -2px; left: 50%; transform: translateX(-50%);
   width: 8px; height: 8px; border-radius: 50%;
-  background: #93c5fd;
-  box-shadow: 0 0 14px 5px rgba(147,197,253,.5);
+  background: #93c5fd; box-shadow: 0 0 14px 5px rgba(147,197,253,.5);
 }
 @keyframes spinRing { to { transform: rotate(360deg); } }
 .hero-photo-glow {
@@ -110,7 +107,6 @@ nav.light .nav-links a:hover { color: var(--text); }
   box-shadow: 0 0 50px rgba(59,130,246,.15), 0 25px 60px rgba(0,0,0,.6);
   display: block; position: relative; z-index: 1;
 }
-
 .hero-eyebrow {
   display: flex; align-items: center; gap: .8rem;
   font-size: .7rem; color: rgba(255,255,255,.55);
@@ -119,15 +115,13 @@ nav.light .nav-links a:hover { color: var(--text); }
 }
 .hero-eyebrow::before {
   content: ''; width: 30px; height: 1px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  flex-shrink: 0;
+  background: linear-gradient(90deg, var(--accent), transparent); flex-shrink: 0;
 }
 h1 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(5rem, 11vw, 9.5rem);
   font-weight: 700; line-height: .88; letter-spacing: .01em;
-  text-transform: uppercase;
-  color: #fff; margin-bottom: 1rem;
+  text-transform: uppercase; color: #fff; margin-bottom: 1rem;
   animation: fadeUp .7s .25s both;
 }
 h1 em { font-style: normal; color: var(--accent); }
@@ -166,7 +160,6 @@ h1 em { font-style: normal; color: var(--accent); }
   text-decoration: none; transition: all .25s;
 }
 .soc:hover { background: rgba(59,130,246,.15); border-color: rgba(59,130,246,.4); color: #93c5fd; transform: translateY(-2px); }
-
 .scroll-hint {
   position: absolute; bottom: 2rem; left: 3rem;
   display: flex; align-items: center; gap: .6rem;
@@ -195,8 +188,6 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .skill-key { font-size: .7rem; color: var(--text-dim); letter-spacing: .07em; text-transform: uppercase; min-width: 95px; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
 .stag { font-size: .71rem; padding: .17rem .55rem; background: var(--accent-light); border: 1px solid #bfdbfe; border-radius: 4px; color: #1d4ed8; }
-
-/* Language bars */
 .lang-bar-row { display: flex; align-items: center; gap: .6rem; }
 .lang-name { font-size: .72rem; color: var(--text); font-weight: 500; min-width: 72px; }
 .lang-bar-wrap { flex: 1; height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; }
@@ -221,7 +212,19 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 
 /* PROJECTS */
 #projects { background: var(--white); }
-.proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+
+/* 2-column grid; thesis spans full width on row 2 */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+/* Thesis goes to row 2, col 1 only */
+.proj-card-thesis {
+  grid-column: 1;
+  grid-row: 2;
+}
+
 .proj-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.8rem; transition: border-color .25s, box-shadow .3s, transform .3s cubic-bezier(.22,1,.36,1); position: relative; }
 .proj-card:hover { border-color: #bfdbfe; transform: translateY(-4px); box-shadow: 0 12px 35px rgba(59,130,246,.08); }
 .proj-featured-badge { position: absolute; top: 1rem; right: 1rem; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: #d97706; background: #fffbeb; border: 1px solid #fde68a; padding: .18rem .55rem; border-radius: 4px; }
@@ -242,65 +245,35 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
   background: #0f172a;
   aspect-ratio: 16/9;
 }
-.proj-carousel-track {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform .45s cubic-bezier(.22,1,.36,1);
-}
-.proj-carousel-slide {
-  flex: 0 0 100%;
-  height: 100%;
-}
-.proj-carousel-slide img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
-}
+.proj-carousel-track { display: flex; width: 100%; height: 100%; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.proj-carousel-slide { flex: 0 0 100%; height: 100%; }
+.proj-carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; }
 .proj-carousel-btn {
   position: absolute; top: 50%; transform: translateY(-50%);
   width: 32px; height: 32px; border-radius: 50%;
   background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.15);
   color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: background .2s, opacity .2s; z-index: 2;
-  opacity: 0;
+  transition: background .2s, opacity .2s; z-index: 2; opacity: 0;
 }
 .proj-carousel:hover .proj-carousel-btn { opacity: 1; }
 .proj-carousel-btn:hover { background: rgba(59,130,246,.75); border-color: transparent; }
 .proj-carousel-btn.prev { left: .6rem; }
 .proj-carousel-btn.next { right: .6rem; }
-.proj-carousel-dots {
-  position: absolute; bottom: .55rem; left: 50%; transform: translateX(-50%);
-  display: flex; gap: .35rem; z-index: 2;
-}
-.proj-carousel-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(255,255,255,.4); border: none; padding: 0; cursor: pointer;
-  transition: background .2s, transform .2s;
-}
+.proj-carousel-dots { position: absolute; bottom: .55rem; left: 50%; transform: translateX(-50%); display: flex; gap: .35rem; z-index: 2; }
+.proj-carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.4); border: none; padding: 0; cursor: pointer; transition: background .2s, transform .2s; }
 .proj-carousel-dot.active { background: #fff; transform: scale(1.25); }
-
 .proj-card.has-carousel { padding-top: 0; overflow: hidden; }
 .proj-card.has-carousel .proj-icon { margin-top: 1.4rem; }
 
-/* ChargIST full-width card — vertical layout */
+/* ChargIST card */
 .chargist-card {
-  grid-column: auto;
+  grid-column: 2;
+  grid-row: 1;
   padding: 0 !important;
   overflow: hidden;
 }
-.chargist-layout {
-  display: flex;
-  flex-direction: column;
-}
-.chargist-left {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px 10px 0 0;
-  background: #1a1a2e;
-}
+.chargist-layout { display: flex; flex-direction: column; }
+.chargist-left { position: relative; overflow: hidden; border-radius: 10px 10px 0 0; background: #1a1a2e; }
 .chargist-carousel {
   position: relative;
   width: 100% !important;
@@ -309,109 +282,28 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
   overflow: hidden;
   background: #1a1a2e;
 }
-.chargist-carousel .proj-carousel-track {
-  height: 100%;
-}
-/* Always-visible nav buttons for chargist */
-.chargist-carousel .proj-carousel-btn {
-  opacity: 1 !important;
-  background: rgba(0,0,0,.45);
-  border-color: rgba(255,255,255,.25);
-}
-.chargist-carousel .proj-carousel-btn:hover {
-  background: rgba(59,130,246,.75);
-  border-color: transparent;
-}
-.chargist-right {
-  padding: 1.4rem 1.8rem;
-  display: flex;
-  flex-direction: column;
-  gap: .4rem;
-}
+.chargist-carousel .proj-carousel-track { height: 100%; }
+.chargist-carousel .proj-carousel-btn { opacity: 1 !important; background: rgba(0,0,0,.45); border-color: rgba(255,255,255,.25); }
+.chargist-carousel .proj-carousel-btn:hover { background: rgba(59,130,246,.75); border-color: transparent; }
+.chargist-right { padding: 1.4rem 1.8rem; display: flex; flex-direction: column; gap: .4rem; }
 .chargist-right .proj-title { font-size: 1.1rem; }
 .chargist-right .proj-desc { font-size: .875rem; }
 
-@media(max-width:700px) {
-  .chargist-carousel { height: 140px !important; }
-}
-
-/* ChargIST group carousel slides */
-.chargist-carousel {
-  aspect-ratio: unset !important;
-  height: 260px;
-}
-.chargist-slide-logo {
-  background: #f0f0f0;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-.chargist-slide-logo img {
-  width: 80%; height: auto;
-  object-fit: contain !important;
-}
+.chargist-slide-logo { background: #f0f0f0; display: flex !important; align-items: center; justify-content: center; height: 100%; }
+.chargist-slide-logo img { width: 80%; height: auto; object-fit: contain !important; }
 .chargist-slide-single {
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 6px;
-  padding: 10px 10px 8px;
-  background: #1a1a2e;
-  height: 100%;
+  display: flex !important; flex-direction: column; align-items: center;
+  justify-content: flex-start; gap: 6px; padding: 10px 10px 8px;
+  background: #1a1a2e; height: 100%;
 }
 .chargist-slide-single img {
-  flex: 1;
-  width: auto;
-  max-width: 67%;
-  min-height: 0;
-  object-fit: contain !important;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.5);
-  display: block;
+  flex: 1; width: auto; max-width: 67%; min-height: 0;
+  object-fit: contain !important; border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.5); display: block;
 }
 .chargist-slide-single .cg-label {
-  font-size: .99rem;
-  color: rgba(255,255,255,.6);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.chargist-slide-group {
-  display: flex !important;
-  align-items: stretch;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px;
-  background: #1a1a2e;
-  height: 100%;
-}
-.cg-phone {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  min-width: 0;
-  min-height: 0;
-}
-.cg-phone img {
-  flex: 1;
-  width: 100%;
-  min-height: 0;
-  object-fit: contain !important;
-  object-position: top;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.5);
-  display: block;
-}
-.cg-label {
-  font-size: .6rem;
-  color: rgba(255,255,255,.45);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  font-size: .99rem; color: rgba(255,255,255,.6);
+  letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
 }
 
 /* EXPERIENCE */
@@ -465,10 +357,12 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
   .section { padding: 4rem 1.5rem; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   footer { padding: 1.5rem; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .proj-card-thesis, .chargist-card { grid-column: 1; grid-row: auto; }
+  .chargist-carousel { height: 260px !important; }
 }
 @media(max-width:600px) {
   .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
-  .proj-grid { grid-template-columns: 1fr; }
   h1 { font-size: 3rem; }
   .hero-photo { width: 220px; height: 220px; }
   .hero-photo-wrap { width: 220px; height: 220px; }
@@ -621,20 +515,8 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
     <div class="reveal d1"><h2>Projects</h2></div>
     <div class="proj-grid">
 
-      <!-- THESIS -->
-      <div class="proj-card reveal d1">
-        <span class="proj-featured-badge">✦ Thesis</span>
-        <div class="proj-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="proj-year">2025 — 2026</div>
-        <div class="proj-title">Using AI for Integrating Custom-Made Applications</div>
-        <div class="proj-desc">Research on leveraging AI to integrate internally-built applications in business environments. Focus on workflow automation and system interoperability using n8n.</div>
-        <div class="proj-tags"><span class="ptag">AI</span><span class="ptag">n8n</span><span class="ptag">Integration</span><span class="ptag">Automation</span></div>
-      </div>
-
-      <!-- CENTURION -->
-      <div class="proj-card has-carousel reveal d2">
+      <!-- ROW 1 COL 1: CENTURION -->
+      <div class="proj-card has-carousel reveal d1">
         <span class="proj-featured-badge">🏆 1st Place</span>
         <div class="proj-carousel" id="carousel-centurion">
           <div class="proj-carousel-track" id="carousel-centurion-track">
@@ -665,15 +547,12 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="proj-tags"><span class="ptag">C-ITS</span><span class="ptag">Vehicular Networks</span><span class="ptag">Embedded</span><span class="ptag">Telecom</span></div>
       </div>
 
-      <!-- CHARGIST — full-width side-by-side card -->
-      <div class="proj-card chargist-card reveal d1">
+      <!-- ROW 1 COL 2: CHARGIST -->
+      <div class="proj-card chargist-card reveal d2">
         <div class="chargist-layout">
-
-          <!-- LEFT: carousel -->
           <div class="chargist-left">
             <div class="chargist-carousel" id="carousel-chargist">
               <div class="proj-carousel-track" id="carousel-chargist-track">
-
                 <div class="proj-carousel-slide chargist-slide-single">
                   <img src="chargist/image1.png" alt="Login" loading="lazy"/><span class="cg-label">Login</span>
                 </div>
@@ -681,30 +560,29 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
                   <img src="chargist/image2.png" alt="Map" loading="lazy"/><span class="cg-label">Map</span>
                 </div>
                 <div class="proj-carousel-slide chargist-slide-single">
-                  <img src="chargist/image9.png" alt="Station detail" loading="lazy"/><span class="cg-label">Search Station</span>
+                  <img src="chargist/image9.png" alt="Search Station" loading="lazy"/><span class="cg-label">Search Station</span>
                 </div>
                 <div class="proj-carousel-slide chargist-slide-single">
-                  <img src="chargist/image9.png" alt="Station detail" loading="lazy"/><span class="cg-label">Station</span>
+                  <img src="chargist/image9.png" alt="Station" loading="lazy"/><span class="cg-label">Station</span>
                 </div>
                 <div class="proj-carousel-slide chargist-slide-single">
-                  <img src="chargist/image4.png" alt="Search" loading="lazy"/><span class="cg-label">Advanced Search 1</span>
+                  <img src="chargist/image4.png" alt="Advanced Search 1" loading="lazy"/><span class="cg-label">Advanced Search 1</span>
                 </div>
                 <div class="proj-carousel-slide chargist-slide-single">
-                  <img src="chargist/image5.png" alt="Filters" loading="lazy"/><span class="cg-label">Advanced Search 2</span>
+                  <img src="chargist/image5.png" alt="Advanced Search 2" loading="lazy"/><span class="cg-label">Advanced Search 2</span>
                 </div>
                 <div class="proj-carousel-slide chargist-slide-single">
                   <img src="chargist/image10.png" alt="Favorites" loading="lazy"/><span class="cg-label">Favorites</span>
                 </div>
                 <div class="proj-carousel-slide chargist-slide-single">
-                  <img src="chargist/image6.png" alt="Add station" loading="lazy"/><span class="cg-label">Add Station 1</span>
+                  <img src="chargist/image6.png" alt="Add Station 1" loading="lazy"/><span class="cg-label">Add Station 1</span>
                 </div>
                 <div class="proj-carousel-slide chargist-slide-single">
-                  <img src="chargist/image7.png" alt="Add station" loading="lazy"/><span class="cg-label">Add Station 2</span>
+                  <img src="chargist/image7.png" alt="Add Station 2" loading="lazy"/><span class="cg-label">Add Station 2</span>
                 </div>
                 <div class="proj-carousel-slide chargist-slide-single">
-                  <img src="chargist/image8.png" alt="Add station" loading="lazy"/><span class="cg-label">Add Station 3</span>
+                  <img src="chargist/image8.png" alt="Add Station 3" loading="lazy"/><span class="cg-label">Add Station 3</span>
                 </div>
-
               </div>
               <button class="proj-carousel-btn prev" aria-label="Previous" onclick="carouselMove('chargist',-1)">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -723,12 +601,9 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',7)" aria-label="Slide 8"></button>
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',8)" aria-label="Slide 9"></button>
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',9)" aria-label="Slide 10"></button>
-                <button class="proj-carousel-dot" onclick="carouselGo('chargist',10)" aria-label="Slide 11"></button>
               </div>
             </div>
           </div>
-
-          <!-- RIGHT: info -->
           <div class="chargist-right">
             <div class="proj-icon">
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -738,8 +613,19 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
             <div class="proj-desc">Android application for locating and managing electric vehicle charging stations. Features interactive GPS maps, search and filtering by availability and charging speed, real-time data synchronisation across devices, and network optimisation with intelligent caching.</div>
             <div class="proj-tags"><span class="ptag">Kotlin</span><span class="ptag">Java</span><span class="ptag">Android SDK</span><span class="ptag">GPS</span><span class="ptag">Real-time Sync</span></div>
           </div>
-
         </div>
+      </div>
+
+      <!-- ROW 2 COL 1: THESIS -->
+      <div class="proj-card proj-card-thesis reveal d3">
+        <span class="proj-featured-badge">✦ Thesis</span>
+        <div class="proj-icon">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="proj-year">2025 — 2026</div>
+        <div class="proj-title">Using AI for Integrating Custom-Made Applications</div>
+        <div class="proj-desc">Research on leveraging AI to integrate internally-built applications in business environments. Focus on workflow automation and system interoperability using n8n.</div>
+        <div class="proj-tags"><span class="ptag">AI</span><span class="ptag">n8n</span><span class="ptag">Integration</span><span class="ptag">Automation</span></div>
       </div>
 
     </div>
@@ -846,20 +732,15 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
 </footer>
 
 <script>
-/* last updated */
 document.getElementById('last-updated').textContent =
   'Updated: ' + new Date(document.lastModified).toLocaleDateString('en-GB', {day:'2-digit',month:'long',year:'numeric'});
 
-/* nav scroll */
 const navEl = document.getElementById('nav');
 const heroEl = document.getElementById('hero');
-function updateNav() {
-  navEl.classList.toggle('light', heroEl.getBoundingClientRect().bottom < 64);
-}
+function updateNav() { navEl.classList.toggle('light', heroEl.getBoundingClientRect().bottom < 64); }
 window.addEventListener('scroll', updateNav, {passive:true});
 updateNav();
 
-/* animated canvas */
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let W, H;
@@ -891,14 +772,12 @@ function draw() {
 }
 draw();
 
-/* scroll reveal */
 document.documentElement.classList.add('js-loaded');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* carousel */
 const carousels = {};
 function carouselInit(id) {
   carousels[id] = { current: 0, total: document.querySelectorAll(`#carousel-${id} .proj-carousel-slide`).length };
@@ -915,16 +794,12 @@ function carouselGo(id, index) {
     d.classList.toggle('active', i === c.current);
   });
 }
-function carouselMove(id, dir) {
-  carouselGo(id, carousels[id].current + dir);
-}
+function carouselMove(id, dir) { carouselGo(id, carousels[id].current + dir); }
 
-/* auto-advance */
 setInterval(() => carouselMove('centurion', 1), 4000);
 setInterval(() => carouselMove('chargist', 1), 3500);
 setInterval(() => carouselMove('csl', 1), 4700);
 
-/* touch/swipe */
 ['centurion', 'chargist', 'csl'].forEach(id => {
   const el = document.getElementById(`carousel-${id}`);
   if (!el) return;
