@@ -232,7 +232,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .proj-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
 .ptag { font-size: .67rem; padding: .17rem .55rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); }
 
-/* ── CAROUSEL ── */
+/* CAROUSEL */
 .proj-carousel {
   position: relative;
   width: calc(100% + 3.6rem);
@@ -282,11 +282,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 }
 .proj-carousel-dot.active { background: #fff; transform: scale(1.25); }
 
-/* Card with carousel — remove top padding so image bleeds to edge */
-.proj-card.has-carousel {
-  padding-top: 0;
-  overflow: hidden;
-}
+.proj-card.has-carousel { padding-top: 0; overflow: hidden; }
 .proj-card.has-carousel .proj-icon { margin-top: 1.4rem; }
 
 /* EXPERIENCE */
@@ -508,25 +504,15 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="proj-tags"><span class="ptag">AI</span><span class="ptag">n8n</span><span class="ptag">Integration</span><span class="ptag">Automation</span></div>
       </div>
 
-      <!-- CENTURION / VEHICULAR NETWORKS — with carousel -->
+      <!-- CENTURION -->
       <div class="proj-card has-carousel reveal d2">
         <span class="proj-featured-badge">🏆 1st Place</span>
-
-        <!-- Carousel -->
         <div class="proj-carousel" id="carousel-centurion">
           <div class="proj-carousel-track" id="carousel-centurion-track">
-            <div class="proj-carousel-slide">
-              <img src="centurion/centurion_1.jpg" alt="Centurion — team at the event" loading="lazy"/>
-            </div>
-            <div class="proj-carousel-slide">
-              <img src="centurion/centurion_2.jpg" alt="Centurion — field test on e-scooter" loading="lazy"/>
-            </div>
-            <div class="proj-carousel-slide">
-              <img src="centurion/centurion_3.jpg" alt="Centurion — presentation at IST" loading="lazy"/>
-            </div>
-            <div class="proj-carousel-slide">
-              <img src="centurion/centurion_4.jpg" alt="Centurion — smart helmet prototype" loading="lazy"/>
-            </div>
+            <div class="proj-carousel-slide"><img src="centurion/centurion_1.jpg" alt="Centurion — team at the event" loading="lazy"/></div>
+            <div class="proj-carousel-slide"><img src="centurion/centurion_2.jpg" alt="Centurion — field test on e-scooter" loading="lazy"/></div>
+            <div class="proj-carousel-slide"><img src="centurion/centurion_3.jpg" alt="Centurion — presentation at IST" loading="lazy"/></div>
+            <div class="proj-carousel-slide"><img src="centurion/centurion_4.jpg" alt="Centurion — smart helmet prototype" loading="lazy"/></div>
           </div>
           <button class="proj-carousel-btn prev" aria-label="Previous" onclick="carouselMove('centurion',-1)">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -541,7 +527,6 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
             <button class="proj-carousel-dot" onclick="carouselGo('centurion',3)" aria-label="Slide 4"></button>
           </div>
         </div>
-
         <div class="proj-icon">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
@@ -551,15 +536,53 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="proj-tags"><span class="ptag">C-ITS</span><span class="ptag">Vehicular Networks</span><span class="ptag">Embedded</span><span class="ptag">Telecom</span></div>
       </div>
 
-      <!-- SOCIAL MEDIA -->
-      <div class="proj-card reveal d3">
-        <div class="proj-icon">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+      <!-- CHARGIST -->
+      <div class="proj-card has-carousel reveal d3">
+        <div class="proj-carousel" id="carousel-chargist">
+          <div class="proj-carousel-track" id="carousel-chargist-track">
+            <!-- Logo slide — centered on dark bg -->
+            <div class="proj-carousel-slide" style="background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
+              <img src="chargist/Logo_Retangular.png" alt="ChargIST — Logo" loading="lazy" style="width:85%;height:auto;object-fit:contain;"/>
+            </div>
+            <!-- Login screen -->
+            <div class="proj-carousel-slide"><img src="chargist/image9.png" alt="ChargIST — Login" loading="lazy"/></div>
+            <!-- Main map -->
+            <div class="proj-carousel-slide"><img src="chargist/image10.png" alt="ChargIST — Map view" loading="lazy"/></div>
+            <!-- Station detail -->
+            <div class="proj-carousel-slide"><img src="chargist/image2.png" alt="ChargIST — Station detail" loading="lazy"/></div>
+            <!-- Search panel -->
+            <div class="proj-carousel-slide"><img src="chargist/image11.png" alt="ChargIST — Search" loading="lazy"/></div>
+            <!-- Advanced filters -->
+            <div class="proj-carousel-slide"><img src="chargist/image12.png" alt="ChargIST — Advanced filters" loading="lazy"/></div>
+            <!-- Favorites -->
+            <div class="proj-carousel-slide"><img src="chargist/image3.png" alt="ChargIST — Favorites" loading="lazy"/></div>
+            <!-- Add station form -->
+            <div class="proj-carousel-slide"><img src="chargist/image14.png" alt="ChargIST — Add station" loading="lazy"/></div>
+          </div>
+          <button class="proj-carousel-btn prev" aria-label="Previous" onclick="carouselMove('chargist',-1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="proj-carousel-btn next" aria-label="Next" onclick="carouselMove('chargist',1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="proj-carousel-dots" id="carousel-chargist-dots">
+            <button class="proj-carousel-dot active" onclick="carouselGo('chargist',0)" aria-label="Slide 1"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('chargist',1)" aria-label="Slide 2"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('chargist',2)" aria-label="Slide 3"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('chargist',3)" aria-label="Slide 4"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('chargist',4)" aria-label="Slide 5"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('chargist',5)" aria-label="Slide 6"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('chargist',6)" aria-label="Slide 7"></button>
+            <button class="proj-carousel-dot" onclick="carouselGo('chargist',7)" aria-label="Slide 8"></button>
+          </div>
         </div>
-        <div class="proj-year">2021 — Present</div>
-        <div class="proj-title">Social Media Management — Sports Association</div>
-        <div class="proj-desc">Creating and managing digital content for a sports association, reaching thousands of followers. Content strategy, editorial planning and organic growth.</div>
-        <div class="proj-tags"><span class="ptag">Digital Marketing</span><span class="ptag">Social Media</span><span class="ptag">Strategy</span></div>
+        <div class="proj-icon">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="proj-year">January 2025 — June 2025</div>
+        <div class="proj-title">ChargIST — Mobile and Ubiquitous Computing</div>
+        <div class="proj-desc">Android application for locating and managing electric vehicle charging stations. Features interactive GPS maps, search and filtering by availability and charging speed, real-time data synchronisation across devices, and network optimisation with intelligent caching.</div>
+        <div class="proj-tags"><span class="ptag">Kotlin</span><span class="ptag">Java</span><span class="ptag">Android SDK</span><span class="ptag">GPS</span><span class="ptag">Real-time Sync</span></div>
       </div>
 
     </div>
@@ -585,8 +608,6 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="exp-role">"O Meu Futuro Financeiro" Competition</div>
         <div class="exp-org">Banco de Portugal</div>
         <div class="exp-desc">Financial literacy competition with over 700 students. The team achieved <strong>5th place</strong>, developing skills in critical thinking and financial analysis.</div>
-
-        <!-- Inline photo carousel -->
         <div class="proj-carousel" id="carousel-csl" style="width:100%;margin:1rem 0 0;border-radius:8px;aspect-ratio:16/9;max-width:560px;">
           <div class="proj-carousel-track" id="carousel-csl-track">
             <div class="proj-carousel-slide"><img src="concurso_banco_de_portugal/concurso_1.jpg" alt="O Meu Futuro Financeiro — event" loading="lazy"/></div>
@@ -668,11 +689,11 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
 </footer>
 
 <script>
-/* ── last updated ── */
+/* last updated */
 document.getElementById('last-updated').textContent =
   'Updated: ' + new Date(document.lastModified).toLocaleDateString('en-GB', {day:'2-digit',month:'long',year:'numeric'});
 
-/* ── nav scroll ── */
+/* nav scroll */
 const navEl = document.getElementById('nav');
 const heroEl = document.getElementById('hero');
 function updateNav() {
@@ -681,7 +702,7 @@ function updateNav() {
 window.addEventListener('scroll', updateNav, {passive:true});
 updateNav();
 
-/* ── animated canvas ── */
+/* animated canvas */
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let W, H;
@@ -713,19 +734,20 @@ function draw() {
 }
 draw();
 
-/* ── scroll reveal ── */
+/* scroll reveal */
 document.documentElement.classList.add('js-loaded');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ── carousel ── */
+/* carousel */
 const carousels = {};
 function carouselInit(id) {
   carousels[id] = { current: 0, total: document.querySelectorAll(`#carousel-${id} .proj-carousel-slide`).length };
 }
 carouselInit('centurion');
+carouselInit('chargist');
 carouselInit('csl');
 
 function carouselGo(id, index) {
@@ -740,29 +762,22 @@ function carouselMove(id, dir) {
   carouselGo(id, carousels[id].current + dir);
 }
 
-/* Auto-advance every 4 s */
+/* auto-advance */
 setInterval(() => carouselMove('centurion', 1), 4000);
+setInterval(() => carouselMove('chargist', 1), 3500);
 setInterval(() => carouselMove('csl', 1), 4700);
 
-/* Touch/swipe support */
-(function() {
-  const el = document.getElementById('carousel-centurion');
+/* touch/swipe */
+['centurion', 'chargist', 'csl'].forEach(id => {
+  const el = document.getElementById(`carousel-${id}`);
+  if (!el) return;
   let startX = 0;
   el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
   el.addEventListener('touchend', e => {
     const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) carouselMove('centurion', diff > 0 ? 1 : -1);
+    if (Math.abs(diff) > 40) carouselMove(id, diff > 0 ? 1 : -1);
   });
-})();
-(function() {
-  const el = document.getElementById('carousel-csl');
-  let startX = 0;
-  el.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
-  el.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) carouselMove('csl', diff > 0 ? 1 : -1);
-  });
-})();
+});
 </script>
 </body>
 </html>
