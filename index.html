@@ -285,26 +285,26 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .proj-card.has-carousel { padding-top: 0; overflow: hidden; }
 .proj-card.has-carousel .proj-icon { margin-top: 1.4rem; }
 
-/* ChargIST full-width side-by-side card */
+/* ChargIST full-width card — vertical layout */
 .chargist-card {
-  grid-column: 1 / -1;
+  grid-column: auto;
   padding: 0 !important;
   overflow: hidden;
 }
 .chargist-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 250px;
+  display: flex;
+  flex-direction: column;
 }
 .chargist-left {
   position: relative;
   overflow: hidden;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px 10px 0 0;
+  background: #1a1a2e;
 }
 .chargist-carousel {
   position: relative;
   width: 100% !important;
-  height: 100% !important;
+  height: 170px !important;
   aspect-ratio: unset !important;
   overflow: hidden;
   background: #1a1a2e;
@@ -312,19 +312,27 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .chargist-carousel .proj-carousel-track {
   height: 100%;
 }
+/* Always-visible nav buttons for chargist */
+.chargist-carousel .proj-carousel-btn {
+  opacity: 1 !important;
+  background: rgba(0,0,0,.45);
+  border-color: rgba(255,255,255,.25);
+}
+.chargist-carousel .proj-carousel-btn:hover {
+  background: rgba(59,130,246,.75);
+  border-color: transparent;
+}
 .chargist-right {
-  padding: 2rem;
+  padding: 1.4rem 1.8rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: .5rem;
+  gap: .4rem;
 }
 .chargist-right .proj-title { font-size: 1.1rem; }
 .chargist-right .proj-desc { font-size: .875rem; }
 
 @media(max-width:700px) {
-  .chargist-layout { grid-template-columns: 1fr; }
-  .chargist-left { border-radius: 10px 10px 0 0; min-height: 320px; }
+  .chargist-carousel { height: 140px !important; }
 }
 
 /* ChargIST group carousel slides */
@@ -356,7 +364,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .chargist-slide-single img {
   flex: 1;
   width: auto;
-  max-width: 100%;
+  max-width: 67%;
   min-height: 0;
   object-fit: contain !important;
   border-radius: 10px;
@@ -717,6 +725,8 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',6)" aria-label="Slide 7"></button>
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',7)" aria-label="Slide 8"></button>
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',8)" aria-label="Slide 9"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',9)" aria-label="Slide 10"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',10)" aria-label="Slide 11"></button>
               </div>
             </div>
           </div>
