@@ -221,7 +221,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 
 /* PROJECTS */
 #projects { background: var(--white); }
-.proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.2rem; }
+.proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
 .proj-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.8rem; transition: border-color .25s, box-shadow .3s, transform .3s cubic-bezier(.22,1,.36,1); position: relative; }
 .proj-card:hover { border-color: #bfdbfe; transform: translateY(-4px); box-shadow: 0 12px 35px rgba(59,130,246,.08); }
 .proj-featured-badge { position: absolute; top: 1rem; right: 1rem; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: #d97706; background: #fffbeb; border: 1px solid #fde68a; padding: .18rem .55rem; border-radius: 4px; }
@@ -294,7 +294,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .chargist-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 380px;
+  min-height: 420px;
 }
 .chargist-left {
   position: relative;
@@ -303,8 +303,8 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 }
 .chargist-carousel {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   aspect-ratio: unset !important;
   overflow: hidden;
   background: #1a1a2e;
@@ -324,8 +324,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 
 @media(max-width:700px) {
   .chargist-layout { grid-template-columns: 1fr; }
-  .chargist-left { border-radius: 10px 10px 0 0; min-height: 280px; }
-  .chargist-carousel { height: 280px; }
+  .chargist-left { border-radius: 10px 10px 0 0; min-height: 320px; }
 }
 
 /* ChargIST group carousel slides */
@@ -343,6 +342,33 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .chargist-slide-logo img {
   width: 80%; height: auto;
   object-fit: contain !important;
+}
+.chargist-slide-single {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 10px 10px 8px;
+  background: #1a1a2e;
+  height: 100%;
+}
+.chargist-slide-single img {
+  flex: 1;
+  width: auto;
+  max-width: 100%;
+  min-height: 0;
+  object-fit: contain !important;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.5);
+  display: block;
+}
+.chargist-slide-single .cg-label {
+  font-size: .6rem;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 .chargist-slide-group {
   display: flex !important;
@@ -631,8 +657,19 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
         <div class="proj-tags"><span class="ptag">C-ITS</span><span class="ptag">Vehicular Networks</span><span class="ptag">Embedded</span><span class="ptag">Telecom</span></div>
       </div>
 
+      <!-- DUMMY CARD -->
+      <div class="proj-card reveal d3">
+        <div class="proj-icon">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="proj-year">2025</div>
+        <div class="proj-title">Dummy Project Title Goes Here</div>
+        <div class="proj-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
+        <div class="proj-tags"><span class="ptag">Tag One</span><span class="ptag">Tag Two</span><span class="ptag">Tag Three</span></div>
+      </div>
+
       <!-- CHARGIST — full-width side-by-side card -->
-      <div class="proj-card chargist-card reveal d3">
+      <div class="proj-card chargist-card reveal d1">
         <div class="chargist-layout">
 
           <!-- LEFT: carousel -->
@@ -640,33 +677,32 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
             <div class="chargist-carousel" id="carousel-chargist">
               <div class="proj-carousel-track" id="carousel-chargist-track">
 
-                <!-- Slide 1: Logo banner -->
                 <div class="proj-carousel-slide chargist-slide-logo">
                   <img src="chargist/Logo_Retangular.png" alt="ChargIST logo" loading="lazy"/>
                 </div>
-
-                <!-- Slide 2: Login · Map -->
-                <div class="proj-carousel-slide chargist-slide-group">
-                  <div class="cg-phone"><img src="chargist/image9.png" alt="Login" loading="lazy"/><span class="cg-label">Login</span></div>
-                  <div class="cg-phone"><img src="chargist/image10.png" alt="Map" loading="lazy"/><span class="cg-label">Map</span></div>
+                <div class="proj-carousel-slide chargist-slide-single">
+                  <img src="chargist/image9.png" alt="Login" loading="lazy"/><span class="cg-label">Login</span>
                 </div>
-
-                <!-- Slide 3: Station detail · Search -->
-                <div class="proj-carousel-slide chargist-slide-group">
-                  <div class="cg-phone"><img src="chargist/image2.png" alt="Station detail" loading="lazy"/><span class="cg-label">Station</span></div>
-                  <div class="cg-phone"><img src="chargist/image11.png" alt="Search" loading="lazy"/><span class="cg-label">Search</span></div>
+                <div class="proj-carousel-slide chargist-slide-single">
+                  <img src="chargist/image10.png" alt="Map" loading="lazy"/><span class="cg-label">Map</span>
                 </div>
-
-                <!-- Slide 4: Filters · Results -->
-                <div class="proj-carousel-slide chargist-slide-group">
-                  <div class="cg-phone"><img src="chargist/image12.png" alt="Filters" loading="lazy"/><span class="cg-label">Filters</span></div>
-                  <div class="cg-phone"><img src="chargist/image13.png" alt="Filter results" loading="lazy"/><span class="cg-label">Results</span></div>
+                <div class="proj-carousel-slide chargist-slide-single">
+                  <img src="chargist/image2.png" alt="Station detail" loading="lazy"/><span class="cg-label">Station</span>
                 </div>
-
-                <!-- Slide 5: Favorites · Add station -->
-                <div class="proj-carousel-slide chargist-slide-group">
-                  <div class="cg-phone"><img src="chargist/image3.png" alt="Favorites" loading="lazy"/><span class="cg-label">Favorites</span></div>
-                  <div class="cg-phone"><img src="chargist/image14.png" alt="Add station" loading="lazy"/><span class="cg-label">Add Station</span></div>
+                <div class="proj-carousel-slide chargist-slide-single">
+                  <img src="chargist/image11.png" alt="Search" loading="lazy"/><span class="cg-label">Search</span>
+                </div>
+                <div class="proj-carousel-slide chargist-slide-single">
+                  <img src="chargist/image12.png" alt="Filters" loading="lazy"/><span class="cg-label">Filters</span>
+                </div>
+                <div class="proj-carousel-slide chargist-slide-single">
+                  <img src="chargist/image13.png" alt="Filter results" loading="lazy"/><span class="cg-label">Results</span>
+                </div>
+                <div class="proj-carousel-slide chargist-slide-single">
+                  <img src="chargist/image3.png" alt="Favorites" loading="lazy"/><span class="cg-label">Favorites</span>
+                </div>
+                <div class="proj-carousel-slide chargist-slide-single">
+                  <img src="chargist/image14.png" alt="Add station" loading="lazy"/><span class="cg-label">Add Station</span>
                 </div>
 
               </div>
@@ -682,6 +718,10 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',2)" aria-label="Slide 3"></button>
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',3)" aria-label="Slide 4"></button>
                 <button class="proj-carousel-dot" onclick="carouselGo('chargist',4)" aria-label="Slide 5"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',5)" aria-label="Slide 6"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',6)" aria-label="Slide 7"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',7)" aria-label="Slide 8"></button>
+                <button class="proj-carousel-dot" onclick="carouselGo('chargist',8)" aria-label="Slide 9"></button>
               </div>
             </div>
           </div>
