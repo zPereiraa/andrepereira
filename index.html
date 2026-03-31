@@ -288,7 +288,7 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 /* ChargIST group carousel — taller to fit portrait screenshots */
 .chargist-carousel {
   aspect-ratio: unset !important;
-  height: 340px;
+  height: 260px;
 }
 .chargist-slide-logo {
   background: #f0f0f0;
@@ -303,10 +303,10 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 }
 .chargist-slide-group {
   display: flex !important;
-  align-items: flex-end;
+  align-items: stretch;
   justify-content: center;
   gap: 8px;
-  padding: 8px 10px 4px;
+  padding: 8px;
   background: #1a1a2e;
   height: 100%;
 }
@@ -317,11 +317,12 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
   align-items: center;
   gap: 5px;
   min-width: 0;
-  height: 100%;
+  min-height: 0;
 }
 .cg-phone img {
+  flex: 1;
   width: 100%;
-  height: calc(100% - 20px);
+  min-height: 0;
   object-fit: contain !important;
   object-position: top;
   border-radius: 8px;
