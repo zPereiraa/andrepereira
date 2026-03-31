@@ -285,6 +285,57 @@ h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.9rem, 3.5v
 .proj-card.has-carousel { padding-top: 0; overflow: hidden; }
 .proj-card.has-carousel .proj-icon { margin-top: 1.4rem; }
 
+/* ChargIST group carousel — taller to fit portrait screenshots */
+.chargist-carousel {
+  aspect-ratio: unset !important;
+  height: 340px;
+}
+.chargist-slide-logo {
+  background: #f0f0f0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.chargist-slide-logo img {
+  width: 80%; height: auto;
+  object-fit: contain !important;
+}
+.chargist-slide-group {
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 10px 28px;
+  background: #1a1a2e;
+  height: 100%;
+}
+.cg-phone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  height: 100%;
+}
+.cg-phone img {
+  width: 100%;
+  height: calc(100% - 20px);
+  object-fit: contain !important;
+  object-position: top;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.5);
+  display: block;
+}
+.cg-label {
+  font-size: .6rem;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 /* EXPERIENCE */
 #experience { background: var(--surface); }
 .exp-list { position: relative; padding-left: 1.5rem; }
@@ -538,26 +589,36 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
 
       <!-- CHARGIST -->
       <div class="proj-card has-carousel reveal d3">
-        <div class="proj-carousel" id="carousel-chargist">
+        <!-- ChargIST: 3-screenshot group carousel -->
+        <div class="proj-carousel chargist-carousel" id="carousel-chargist">
           <div class="proj-carousel-track" id="carousel-chargist-track">
-            <!-- Logo slide — centered on dark bg -->
-            <div class="proj-carousel-slide" style="background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
-              <img src="chargist/Logo_Retangular.png" alt="ChargIST — Logo" loading="lazy" style="width:85%;height:auto;object-fit:contain;"/>
+
+            <!-- Slide 1: Logo banner -->
+            <div class="proj-carousel-slide chargist-slide-logo">
+              <img src="chargist/Logo_Retangular.png" alt="ChargIST logo" loading="lazy"/>
             </div>
-            <!-- Login screen -->
-            <div class="proj-carousel-slide"><img src="chargist/image9.png" alt="ChargIST — Login" loading="lazy"/></div>
-            <!-- Main map -->
-            <div class="proj-carousel-slide"><img src="chargist/image10.png" alt="ChargIST — Map view" loading="lazy"/></div>
-            <!-- Station detail -->
-            <div class="proj-carousel-slide"><img src="chargist/image2.png" alt="ChargIST — Station detail" loading="lazy"/></div>
-            <!-- Search panel -->
-            <div class="proj-carousel-slide"><img src="chargist/image11.png" alt="ChargIST — Search" loading="lazy"/></div>
-            <!-- Advanced filters -->
-            <div class="proj-carousel-slide"><img src="chargist/image12.png" alt="ChargIST — Advanced filters" loading="lazy"/></div>
-            <!-- Favorites -->
-            <div class="proj-carousel-slide"><img src="chargist/image3.png" alt="ChargIST — Favorites" loading="lazy"/></div>
-            <!-- Add station form -->
-            <div class="proj-carousel-slide"><img src="chargist/image14.png" alt="ChargIST — Add station" loading="lazy"/></div>
+
+            <!-- Slide 2: Login · Map · Station detail -->
+            <div class="proj-carousel-slide chargist-slide-group">
+              <div class="cg-phone"><img src="chargist/image9.png" alt="Login" loading="lazy"/><span class="cg-label">Login</span></div>
+              <div class="cg-phone"><img src="chargist/image10.png" alt="Map" loading="lazy"/><span class="cg-label">Map</span></div>
+              <div class="cg-phone"><img src="chargist/image2.png" alt="Station detail" loading="lazy"/><span class="cg-label">Station</span></div>
+            </div>
+
+            <!-- Slide 3: Search · Filters · Filter results -->
+            <div class="proj-carousel-slide chargist-slide-group">
+              <div class="cg-phone"><img src="chargist/image11.png" alt="Search" loading="lazy"/><span class="cg-label">Search</span></div>
+              <div class="cg-phone"><img src="chargist/image12.png" alt="Filters" loading="lazy"/><span class="cg-label">Filters</span></div>
+              <div class="cg-phone"><img src="chargist/image13.png" alt="Filter results" loading="lazy"/><span class="cg-label">Results</span></div>
+            </div>
+
+            <!-- Slide 4: Favorites · Add station · Charging slots -->
+            <div class="proj-carousel-slide chargist-slide-group">
+              <div class="cg-phone"><img src="chargist/image3.png" alt="Favorites" loading="lazy"/><span class="cg-label">Favorites</span></div>
+              <div class="cg-phone"><img src="chargist/image14.png" alt="Add station" loading="lazy"/><span class="cg-label">Add Station</span></div>
+              <div class="cg-phone"><img src="chargist/image15.png" alt="Charging slots" loading="lazy"/><span class="cg-label">Charging Slots</span></div>
+            </div>
+
           </div>
           <button class="proj-carousel-btn prev" aria-label="Previous" onclick="carouselMove('chargist',-1)">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -570,10 +631,6 @@ footer { padding: 1.8rem 3rem; border-top: 1px solid var(--border); display: fle
             <button class="proj-carousel-dot" onclick="carouselGo('chargist',1)" aria-label="Slide 2"></button>
             <button class="proj-carousel-dot" onclick="carouselGo('chargist',2)" aria-label="Slide 3"></button>
             <button class="proj-carousel-dot" onclick="carouselGo('chargist',3)" aria-label="Slide 4"></button>
-            <button class="proj-carousel-dot" onclick="carouselGo('chargist',4)" aria-label="Slide 5"></button>
-            <button class="proj-carousel-dot" onclick="carouselGo('chargist',5)" aria-label="Slide 6"></button>
-            <button class="proj-carousel-dot" onclick="carouselGo('chargist',6)" aria-label="Slide 7"></button>
-            <button class="proj-carousel-dot" onclick="carouselGo('chargist',7)" aria-label="Slide 8"></button>
           </div>
         </div>
         <div class="proj-icon">
